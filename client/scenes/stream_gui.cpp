@@ -471,7 +471,6 @@ static const char * codec_name(wivrn::video_codec codec)
 
 void scenes::stream::gui_compact_view()
 {
-	const auto & metrics = global_metrics[(metrics_offset + global_metrics.size() - 1) % global_metrics.size()];
 	const wivrn::ui::theme & t = wivrn::ui::current();
 
 	auto f = [&](const char * label, float value, const char * unit, const ImVec4 * color = nullptr) {
@@ -495,7 +494,6 @@ void scenes::stream::gui_compact_view()
 
 	// A little breathing room, scaled with the theme rather than a hardcoded pixel count.
 	const float small_gap = ImGui::GetStyle().ItemSpacing.y;
-	const float section_gap = small_gap * 2;
 
 	// A section header is just a label with no value, in a muted color: no need to fight
 	// ImGui's table column separators for something that spans both columns cleanly.
